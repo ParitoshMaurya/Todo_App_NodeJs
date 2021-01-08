@@ -1,5 +1,5 @@
 # Todo App NodeJs
-In this project, I have made a ToDo List App using NodeJS, express and MYSQL database connection. A user can add, delete, update, view and search all his tasks. I used pug view tempelate as it becomes quite easy to undestand the syntax and render the data from backend to pug.
+In this project, I have made a ToDo List App using NodeJS, express and MYSQL database connection. A user can add, delete, update, view and search all his tasks. I used pug view tempelate as it becomes quite easy to undestand the syntax and render the data from backend to pug. I have used Knex query builder and proper routes for each action.
 
 ## Requirements
 If you're using Linux-based OS, install the latest version of Nodejs and npm, by typing the following commands on your terminal.
