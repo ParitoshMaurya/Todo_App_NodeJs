@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    // Required meta tags
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    // Bootstrap CSS
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous")
+    title ToDo's List
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container-fluid
+        a.navbar-brand(href="#") ToDo's List
+        button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            li.nav-item
+              a.nav-link.active(aria-current="page" href="#") Home
+            li.nav-item
+              a.nav-link(href="https://github.com/ParitoshMaurya",target="_blank") About
+            li.nav-item
+              a.nav-link(href="/theme") #{Theme}
+
+          button.btn.btn-light.me-2(onclick="window.location.href='/'")
+            svg#refresh.bi.bi-bootstrap-reboot(xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewbox="0 0 16 16")
+              path(fill-rule="evenodd" d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 0 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.812 6.812 0 0 0 1.16 8zm5.48-.079V5.277h1.57c.881 0 1.416.499 1.416 1.32 0 .84-.504 1.324-1.386 1.324h-1.6zm0 3.75V8.843h1.57l1.498 2.828h1.314L9.377 8.665c.897-.3 1.427-1.106 1.427-2.1 0-1.37-.943-2.246-2.456-2.246H5.5v7.352h1.141z")
+          form.form-inline.ml-auto(action="/search_item", method="post")
+            input#search-box.form-control.me-2.w-75(type="search" name="search_val" placeholder="Search Task" aria-label="Search" width='100')
+            
+
+    block content

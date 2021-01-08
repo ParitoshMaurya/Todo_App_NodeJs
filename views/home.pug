@@ -1,0 +1,47 @@
+extends layout
+block content
+    .container.my-4
+      h2.text-center
+        | ToDo's List
+      -if(flag==1)
+        .alert.alert-danger(role='alert') #{message}
+      -if(flag==0)
+        .alert.alert-success(role='alert') #{message}
+      form(action="/add_data", method="post")
+        .mb-3
+            label.form-label(for="task-box") Title
+            input#task-box.form-control(type="task" name="task" aria-describedby="task-desc")
+            #task-desc.form-text We'll add your task to your ToDO's List.
+        .mb-3
+            label.form-label(for="desc-box") Description
+            textarea#desc-box.form-control(rows="3" name="description")
+        button#add-btn.btn.btn-primary(type="submit") Add Task
+      //- button#clear-btn.btn.btn-primary.my-1(onclick="window.location.href='/clear_all'") Clear All Task
+      h3.my-4
+        | Your Task's
+        button#clear-btn.btn.btn-primary.mx-5(onclick="window.location.href='/clear_all'") Clear All Task
+      table.table
+        thead
+          tr
+            th(scope="col") No.
+            th(scope="col") Task
+            th(scope="col") Description
+            th(scope="col") Action
+        tbody#table-body
+        each user in userlist
+          tr
+            th #{user.s_no}
+            td #{user.task}
+            td #{user.desc}
+            td
+              -if(edit==true)
+                form(action="/editdata/"+user.s_no, method="post")
+                  input.w-2.form-control(type="text" name='edit_data' value=user.desc)
+                  button.btn.btn-sm.btn-outline-success.my-2(type='submit' ) Save
+              -if(edit!=true)
+                button.btn.btn-sm.btn-outline-success(type='submit' onclick="window.location.href='/edit/"+user.s_no+"'") Edit
+                button.btn.btn-sm.btn-outline-danger.mx-2(type="submit" onclick="window.location.href='/delete_this/"+user.s_no+"'") Delete
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous")
+    
+
+    
